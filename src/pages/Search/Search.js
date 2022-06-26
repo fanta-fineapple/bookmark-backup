@@ -30,10 +30,11 @@ const Search = () => {
           setSearchResultList(result.data.item);
           window.scrollTo(0, 0);
         } else {
-          setSearchResultList(prev => [...prev, ...result.data.item]);
+          // setSearchResultList(prev => [...prev, ...result.data.item]);
         }
         setTotalResult(result.data.totalResults);
         setLoading(false);
+        console.log(result.data.item);
       }
 
 
