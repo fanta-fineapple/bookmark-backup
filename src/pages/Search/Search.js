@@ -62,7 +62,7 @@ const Search = () => {
         <Loading full={true} />
       ) : (
         <>
-          <BookList keyword={keyword === null || searchResultList.length === 0}>
+          <BookList keyword={keyword === null}>
           
             <ListResult bookList={searchResultList} />
             
