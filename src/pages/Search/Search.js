@@ -63,8 +63,8 @@ const Search = () => {
       ) : (
         <>
           <BookList keyword={keyword === null}>
-          
-            <ListResult bookList={searchResultList} />
+          ㅅㅂ
+            {/* <ListResult bookList={searchResultList} /> */}
             
           </BookList>
           <Target loading={loading} setPage={setPage} />
