@@ -1,1 +1,1 @@
-worker: python parsingPost.py
+web: serve -s build
