@@ -8,8 +8,8 @@ export const bookApi = {
       d_isbn: isbn
     },
     headers: {
-      'X-Naver-Client-ID': process.env.REACT_APP_ID_KEY,
-      'X-Naver-Client-Secret': process.env.REACT_APP_SECRET_KEY
+      'X-Naver-Client-ID': 'gV1ciybJGKhvR08dCuzE',
+      'X-Naver-Client-Secret': 'EWacGVfT55'
     }
   }),
   search: (term, page) =>
@@ -20,8 +20,8 @@ export const bookApi = {
         start: page,
       },
       headers: {
-        'X-Naver-Client-ID': process.env.REACT_APP_ID_KEY,
-        'X-Naver-Client-Secret': process.env.REACT_APP_SECRET_KEY
+        'X-Naver-Client-ID': 'gV1ciybJGKhvR08dCuzE',
+        'X-Naver-Client-Secret': 'EWacGVfT55'
       }
     })
 };
