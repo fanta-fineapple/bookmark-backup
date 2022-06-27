@@ -6,12 +6,13 @@ import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 const Calendar = ({value, jumpToMonth, returnToday, handleClickDay, bookList}) => {
   const [calendar, setCalendar] = useState([]);
 
-  const startDay = value.clone().startOf('month').startOf('week');
-  const endDay = value.clone().endOf('month').endOf('week');
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    const startDay = value.clone().startOf('month').startOf('week');
+    const endDay = value.clone().endOf('month').endOf('week');
+  
     const day = startDay.clone().subtract(1, 'day');
     const a = [];
     while(day.isBefore(endDay, 'day')) {

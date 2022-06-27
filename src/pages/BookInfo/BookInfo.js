@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { bookApi } from '../../api/axios';
 import BookInfoTop from '../../components/BookInfoTop';
 import styled from 'styled-components';
-import XMLParser from "react-xml-parser";
 
 
 const BookInfo = () => {
@@ -14,20 +13,12 @@ const BookInfo = () => {
   const isbn = params.isbn;
 
 
-  // function parseStr(dataSet) {
-  //   const dataArr = new XMLParser().parseFromString(dataSet).children;
-  //   console.log(dataArr);
-  // }
-
   useEffect(() => {
-    const XMLParser = require('react-xml-parser');
-    
+
     const getBookInfo = async () => {
       const book = await bookApi.info(isbn);
-      // setBookInfo(...book.data.item);
-      const herehere = book.data.item;
-      const xml = new XMLParser().parseFromString(herehere); 
-    console.log(xml);
+      setBookInfo(...book.data.item);
+      
     };
     getBookInfo();
   }, [isbn]);
@@ -37,7 +28,7 @@ const BookInfo = () => {
     <BookInfoWrap>
 
         
-        {/* {Object.keys(bookInfo).length !== 0 &&
+        {Object.keys(bookInfo).length !== 0 &&
         <Box>
           <BookInfoBox>
             <BookInfoTop bookInfo={bookInfo} />
@@ -51,7 +42,7 @@ const BookInfo = () => {
           </BookInfoBox>
           <div className="btn uploadBtn" onClick={() => navigate(`/recording/write/${isbn}`)}>독서 기록하기</div>
         </Box>
-        } */}
+        }
       
     
     </BookInfoWrap>

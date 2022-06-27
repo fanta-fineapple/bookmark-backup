@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import Loading from '../../components/Loading';
 import { dbService } from '../../firebase';
 import ListResult from '../../components/ListResult';
 
@@ -37,8 +36,9 @@ const List = ({bookList}) => {
         setFilterDataOrigin(productItems);
       });
     }
+    console.log('dd');
     
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     if(keyword !== null){

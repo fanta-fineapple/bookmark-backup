@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import { useNavigate, useLocation} from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 import Loading from '../../components/Loading';
 import Target from './Target';
 import { bookApi } from '../../api/axios';
 import styled from 'styled-components';
-import { authorSlice } from '../../util/util';
 import ListResult from '../../components/ListResult';
 
 const Search = () => {
@@ -13,8 +12,6 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
 
   const [totalResult, setTotalResult] = useState(null);
-
-  const navigate = useNavigate();
   const location = useLocation();
   const keyword = location.state;
 
@@ -38,12 +35,12 @@ const Search = () => {
       }
 
 
-      if(totalResult !== searchResultList.length) {
+      // if(totalResult !== searchResultList.length) {
         if(keyword !== null){
           getData();
         }
       
-      }
+      // }
 
   }, [page, keyword])
 
@@ -52,7 +49,7 @@ const Search = () => {
     setTotalResult(null);
   }, [keyword]);
 
-
+console.log(totalResult);
 
   return (
     <SearchWrap>

@@ -55,10 +55,11 @@ const Recording = () => {
 
   useEffect(() => {
     if(state === 'write'){
-      setBookmark([{...useList}]);
+      setBookmark([{image: '', text: '', page: '', string: true, id: 0}]);
     }
+    console.log('gd');
     
-  }, [])
+  }, [state])
 
   const addToList = () => {
     const gg = {...useList};
