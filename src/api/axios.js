@@ -1,31 +1,27 @@
 import axios from "axios";
-
-
-const api = axios.create({
-  baseURL: "/ttb/api/"
-});
+const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+const URL = `${PROXY}/v1/search/book.json`;
 
 export const bookApi = {
-  info: (isbn) => api.get("ItemLookUp.aspx", { 
+  info: (isbn) => axios.get(`/v1/search/book_adv.xml`, { 
     params: {
-      ttbkey: process.env.REACT_APP_TTB_KEY,
-      itemIdType: 'ISBN13',
-      ItemId: isbn,
-      output: 'js',
-      Version: 20131101
+      d_isbn: isbn
+    },
+    headers: {
+      'X-Naver-Client-ID': process.env.REACT_APP_ID_KEY,
+      'X-Naver-Client-Secret': process.env.REACT_APP_SECRET_KEY
     }
   }),
   search: (term, page) =>
-    api.get("ItemSearch.aspx", {
+    axios.get(URL, {
       params: {
-        ttbkey: 'ttbdas19051700001',
         Query: term,
-        QueryType: 'Title',
-        MaxResults: 10,
+        // display: 10,
         start: page,
-        SearchTarget : 'Book',
-        output: 'js',
-        Version: 20131101
+      },
+      headers: {
+        'X-Naver-Client-ID': process.env.REACT_APP_ID_KEY,
+        'X-Naver-Client-Secret': process.env.REACT_APP_SECRET_KEY
       }
     })
 };

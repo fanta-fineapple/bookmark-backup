@@ -18,14 +18,14 @@ const Routing = () => {
         <Header />
         
           <Routes>
-            <Route path={"/"} element={<MyRecord />} />
-            <Route path={"/search"} element={<Search />} />
-            <Route path={"/bookinfo/:isbn"} element={<BookInfo />} />
-            <Route path={"/recording/:state/:isbn"} element={<Recording />} />
-            <Route path={"/view/:id"} element={<View />} />
-            <Route path={"/list"} element={<List />} />
-            <Route path={"/test"} element={<ScrollTest />} />
-            <Route path={"/loading"} element={<Loading />} />
+            <Route path={"/"} exact={true} element={<MyRecord />} />
+            <Route path={"/search"} exact={true} element={<Search />} />
+            <Route path={"/bookinfo/:isbn"} exact={true} element={<BookInfo />} />
+            <Route path={"/recording/:state/:isbn"} exact={true} element={<Recording />} />
+            <Route path={"/view/:id"} exact={true} element={<View />} />
+            <Route path={"/list"} exact={true} element={<List />} />
+            <Route path={"/test"} exact={true} element={<ScrollTest />} />
+            <Route path={"/loading"} exact={true} element={<Loading />} />
           </Routes>
         
     </Router>

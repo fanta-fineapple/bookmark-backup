@@ -27,14 +27,14 @@ const Search = () => {
         setLoading(true);
         const result = await bookApi.search(keyword, page);
         if(page === 1){
-          setSearchResultList(result.data.item);
+          setSearchResultList(result.data.items);
+          console.log(result);
           window.scrollTo(0, 0);
         } else {
-          // setSearchResultList(prev => [...prev, ...result.data.item]);
+          setSearchResultList(prev => [...prev, ...result.data.items]);
         }
         setTotalResult(result.data.totalResults);
         setLoading(false);
-        console.log(result.data.item);
       }
 
 
@@ -63,9 +63,9 @@ const Search = () => {
         <Loading full={true} />
       ) : (
         <>
-          <BookList keyword={keyword === null}>
-          ㅅㅂ
-            {/* <ListResult bookList={searchResultList} /> */}
+          <BookList keyword={keyword === null || searchResultList.length === 0}>
+          
+            <ListResult bookList={searchResultList} />
             
           </BookList>
           <Target loading={loading} setPage={setPage} />
