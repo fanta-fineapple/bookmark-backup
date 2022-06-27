@@ -35,18 +35,19 @@ const Search = () => {
       }
 
 
-      // if(totalResult !== searchResultList.length) {
+
         if(keyword !== null){
           getData();
         }
       
-      // }
+
 
   }, [page, keyword])
 
   useEffect(() => {
     setPage(1);
     setTotalResult(null);
+    setSearchResultList([])
   }, [keyword]);
 
 console.log(totalResult);
@@ -65,7 +66,7 @@ console.log(totalResult);
             <ListResult bookList={searchResultList} />
             
           </BookList>
-          <Target loading={loading} setPage={setPage} />
+          {totalResult !== searchResultList.length && <Target loading={loading} setPage={setPage} />}
         </>
       )
       }

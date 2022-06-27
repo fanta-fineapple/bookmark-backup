@@ -153,8 +153,8 @@ const Day = styled.div`
     color: #f54842;
   }
   #day {
-    min-height: 110px;
-    padding: 3px;
+    min-height: 85px;
+    padding: 3px 10px;
 
     span {
       font-size: 0.8rem;

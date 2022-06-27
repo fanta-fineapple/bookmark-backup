@@ -173,7 +173,7 @@ const Recording = () => {
     
   }
 
- 
+ console.log('gdzsesef');
 
   return (
     <RecordingWrap>
