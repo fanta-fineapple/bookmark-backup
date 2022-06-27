@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { authorSlice, titleTagDel, isbnSlice } from '../util/util';
+import { authorSlice} from '../util/util';
 
 const ListResult = ({bookList}) => {
   const location = useLocation();
@@ -12,10 +12,10 @@ const ListResult = ({bookList}) => {
   return (
     <>
     {bookList.map(book => (
-      <Book key={book.isbn} onClick={() => pathname === '/search' ? navigate(`/bookinfo/${isbnSlice(book.isbn)}`) : navigate(`/view/${book.id}`)}>
-        <BookCover><img src={book.image} alt="" /></BookCover>
+      <Book key={book.isbn} onClick={() => pathname === '/search' ? navigate(`/bookinfo/${book.isbn13}`) : navigate(`/view/${book.id}`)}>
+        <BookCover><img src={book.cover} alt="" /></BookCover>
         <BookTitle>
-          <div>{pathname === '/search' ? titleTagDel(book.title) : book.title}</div>
+          <div>{book.title}</div>
           <div>{pathname === '/search' ? authorSlice(book.author) : book.author}</div>
         </BookTitle>
       </Book>

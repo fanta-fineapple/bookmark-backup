@@ -18,6 +18,7 @@ const BookInfo = () => {
     const getBookInfo = async () => {
       const book = await bookApi.info(isbn);
       setBookInfo(...book.data.item);
+      console.log(book.data);
       
     };
     getBookInfo();

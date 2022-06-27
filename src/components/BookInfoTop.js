@@ -1,14 +1,14 @@
 import React from 'react';
-import { authorSlice, titleTagDel } from '../util/util';
+import { authorSlice } from '../util/util';
 import styled from 'styled-components';
 
 const BookInfoTop = ({bookInfo, children}) => {
   return (
     <InfoTop>
-      <Cover><img src={bookInfo.image} alt="도서 커버" /></Cover>
+      <Cover><img src={bookInfo.cover} alt="도서 커버" /></Cover>
       <TitleBox>
         <div className="top">
-          <Title>{titleTagDel(bookInfo.title)}</Title>
+          <Title>{bookInfo.title}</Title>
           <Author><span>지은이</span><span>{Object.keys(bookInfo).length !== 0 && authorSlice(bookInfo.author)}</span></Author>
           <Author><span>출판사</span><span>{bookInfo.publisher}</span></Author>
         </div>

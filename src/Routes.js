@@ -6,7 +6,6 @@ import Search from './pages/Search/Search';
 import BookInfo from './pages/BookInfo/BookInfo';
 import Recording from './pages/Recording/Recording';
 import View from './pages/View/View';
-import ScrollTest from './pages/ScrollTest';
 import Loading from './components/Loading';
 import List from './pages/MyRecord/List';
 
@@ -24,7 +23,6 @@ const Routing = () => {
             <Route path={"/recording/:state/:isbn"} exact={true} element={<Recording />} />
             <Route path={"/view/:id"} exact={true} element={<View />} />
             <Route path={"/list"} exact={true} element={<List />} />
-            <Route path={"/test"} exact={true} element={<ScrollTest />} />
             <Route path={"/loading"} exact={true} element={<Loading />} />
           </Routes>
         

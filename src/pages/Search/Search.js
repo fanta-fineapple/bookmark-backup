@@ -24,11 +24,11 @@ const Search = () => {
         setLoading(true);
         const result = await bookApi.search(keyword, page);
         if(page === 1){
-          setSearchResultList(result.data.items);
+          setSearchResultList(result.data.item);
           console.log(result);
           window.scrollTo(0, 0);
         } else {
-          setSearchResultList(prev => [...prev, ...result.data.items]);
+          setSearchResultList(prev => [...prev, ...result.data.item]);
         }
         setTotalResult(result.data.totalResults);
         setLoading(false);
