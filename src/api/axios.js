@@ -9,7 +9,7 @@ export const bookApi = {
   info: (isbn) => 
     api.get("ItemLookUp.aspx", { 
       params: {
-        ttbkey: 'ttbdas19051700001',
+        ttbkey: process.env.REACT_APP_TTB_KEY,
         itemIdType: 'ISBN13',
         ItemId: isbn,
         output: 'js',
@@ -19,7 +19,7 @@ export const bookApi = {
   search: (term, page) =>
     api.get("ItemSearch.aspx", {
       params: {
-        ttbkey: 'ttbdas19051700001',
+        ttbkey: process.env.REACT_APP_TTB_KEY,
         Query: term,
         QueryType: 'Title',
         MaxResults: 10,
