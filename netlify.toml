@@ -1,15 +1,6 @@
-[build]
-  command = "npm run build"
-  publish = "build"
-
 [[redirects]]
   from = "/proxy/*"
   to = "http://www.aladin.co.kr/:splat"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "https://mellifluous-tulumba-d10b0b.netlify.app"
