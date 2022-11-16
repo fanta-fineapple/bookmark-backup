@@ -6,7 +6,6 @@ import GlobalStyle from './styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import Routes from './Routes';
 import theme from './styles/theme';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +17,5 @@ root.render(
       </ThemeProvider>
     
  </>
-
+  
 );
-serviceWorkerRegistration.register();

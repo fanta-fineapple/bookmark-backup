@@ -7,6 +7,7 @@ import ListResult from '../../components/ListResult';
 const List = ({bookList}) => {
   const [filterDataOrigin, setFilterDataOrigin] = useState([]);
   const [filterData, setFilterData] = useState([]);
+  const [list, setList] = useState([]);
   const location = useLocation();
   const keyword = location.state;
   const pathname = location.pathname;
@@ -14,29 +15,17 @@ const List = ({bookList}) => {
 
 
   useEffect(() => {
-  
-    // const getData = async () => {
-  
-    //   const result = await dbService.collection('test').get();
-    //   let productItems = [];
-    //   result.forEach((doc) => {
-    //     productItems = [...productItems, { docId:doc.id, ...doc.data()} ]
-    //   });
-    //   setFilterDataOrigin(productItems);
-    // }
-
-
     if(pathname === '/list'){
       // getData();
-      dbService.collection('test').get().then((querySnapshot) => {
+      dbService.collection('book').get().then((querySnapshot) => {
         let productItems = [];
         querySnapshot.forEach((doc) => {
           productItems = [...productItems, { docId:doc.id, ...doc.data()} ]
         });
         setFilterDataOrigin(productItems);
       });
+
     }
-    console.log('dd');
     
   }, [pathname]);
 
@@ -46,7 +35,6 @@ const List = ({bookList}) => {
       const test = filterDataOrigin.filter(el => el.title.includes(keyword));
       setFilterData(test);
     }
-    
   }, [keyword, filterDataOrigin]);
 
 

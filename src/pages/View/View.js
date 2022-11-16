@@ -16,7 +16,7 @@ const View = () => {
 
   useEffect(() => {
     setLoading(true);
-    dbService.collection('test').doc(id).get().then((doc) => {
+    dbService.collection('book').doc(id).get().then((doc) => {
       setBookInfo(doc.data());
       setLoading(false);
     });
@@ -34,6 +34,7 @@ const View = () => {
     
   }
 
+  console.log(bookInfo);
 
   return (
     <ViewWrap>
@@ -59,16 +60,19 @@ const View = () => {
             <Memo>{bookInfo.memo}</Memo>
           </MemoBox>
 
-          <div>
-            <CateTitle>책갈피</CateTitle>
-            {bookInfo.bookmark && bookInfo.bookmark.map(el => (
-              <BookMarkBox key={el.id}>
-                {el.string ? <div>{el.text}</div> : <div><img src={el.image} alt="" /></div>}
-                <Page>p. {el.page}</Page>
-              </BookMarkBox>
-            ))}
-            
-          </div>
+          {bookInfo.bookmark.length !== 0 && 
+            <div>
+              <CateTitle>책갈피</CateTitle>
+              {bookInfo.bookmark && bookInfo.bookmark.map(el => (
+                <BookMarkBox key={el.id}>
+                  {el.string ? <div>{el.text}</div> : <div><img src={el.image} alt="" /></div>}
+                  <Page>p. {el.page}</Page>
+                </BookMarkBox>
+              ))}
+              
+            </div>
+          }
+          
         </InfoBottom>
 
         

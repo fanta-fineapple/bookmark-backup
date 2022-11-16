@@ -7,10 +7,12 @@ const Target = ({loading, setPage}) => {
 
   useEffect(() => {
     const fetchMoreObserver = new IntersectionObserver(entries => {
-      if(entries[0].isIntersecting){
-        setPage(page => page + 1);
-      }
+      // if(entries[0].isIntersecting){
+      //   setPage(page => page + 1);
+      // }
+      console.log(entries)
     });
+    console.log(targetRef.current);
 
     fetchMoreObserver.observe(targetRef.current);
     
@@ -18,7 +20,7 @@ const Target = ({loading, setPage}) => {
 
 
   return (
-    <div id="fetchMore" ref={targetRef}>
+    <div id="fetchMore" ref={targetRef} style={{background: '#fa0', height: '50px'}}>
       {loading && <Loading full={false} />}
     </div>
   )

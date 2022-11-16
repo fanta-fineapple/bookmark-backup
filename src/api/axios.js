@@ -1,8 +1,8 @@
 import axios from "axios";
-// const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
 
 const api = axios.create({
-  baseURL: `/proxy/ttb/api/`
+  baseURL: `${PROXY}/ttb/api/`
 });
 
 export const bookApi = {
